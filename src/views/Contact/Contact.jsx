@@ -28,7 +28,7 @@ const ContactPage = () => {
       className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-cover bg-center"
       style={{ backgroundImage: `url(${Background})` }}
     >
-      <div className="w-[80%] mx-auto flex">
+      <div className="w-[80%] mx-auto flex mt-20">
           <div className=" md:w-1/2 bg-slate-300 shadow-lg rounded-lg p-6 m-4 opacity-95 flex-grow">
             <h2 className="text-3xl font-bold mb-4 text-green-800 text-center pb-3 ">
               Contact Information

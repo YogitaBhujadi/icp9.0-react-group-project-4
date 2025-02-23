@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import trainData from "../../config/trainData";
 import TrainDetailsCard from "../../components/TrainDetailsCard";
-import Background from "../../assets/images/bg7.jpg";
+import Background from "../../assets/images/bg12.webp";
 
 const TrainExplorer = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -27,7 +27,7 @@ const TrainExplorer = () => {
           backgroundImage: `url(${Background})`,
         }}
     >
-    <div className="min-h-screen flex flex-col items-center bg-gray-100 p-6 mt-30 mb-10">
+    <div className="min-h-screen flex flex-col items-center bg-slate-200 p-6 mt-30 mb-10">
       <h1 className="md:text-3xl text-xl font-bold md:mb-8 mb-3 text-green-800">Train Explorer</h1>
 
       <div className="flex w-full gap-6 flex-wrap justify-center">

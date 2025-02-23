@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Background from "../../assets/images/bg7.jpg";
+import Background from "../../assets/images/bg12.webp";
 
 import TrainAnimation from "./../../components/PntrStatus/Trainanimation";
 import { passengers, trains } from "./../../config/data";
@@ -51,14 +51,14 @@ const PNRStatus = () => {
         }}
     >
       <div className=" flex-grow flex flex-col justify-center items-center px-4 md:px-8">
-        <div className="  mt-30 mb-10 sm:mb-0 sm:mt-0 bg-white shadow-lg rounded-lg p-6 w-full max-w-md sm:max-w-lg lg:max-w-xl text-center">
+        <div className="  mt-30 mb-10 sm:mb-0 sm:mt-0 bg-slate-300 shadow-lg rounded-lg p-6 w-full max-w-md sm:max-w-lg lg:max-w-xl text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-blue-800 mb-4">PNR Status</h2>
           <input
             type="text"
             value={pnr}
             onChange={(e) => setPnr(e.target.value)}
             placeholder="Enter 10-digit PNR Number"
-            className="w-full p-3 border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full p-3 border border-gray-500 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-green-500"
           />
           {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
           <button

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import toast, {Toaster} from 'react-hot-toast';
-import Background from "../../assets/images/bg7.jpg";
+import Background from "../../assets/images/bg12.webp";
 
 const CancelTrainTicketPage = () => {
   const [ticketDetails, setTicketDetails] = useState({

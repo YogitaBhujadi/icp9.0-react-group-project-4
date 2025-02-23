@@ -18,6 +18,7 @@ import ContactPage from './views/Contact/Contact';
 import Login from './views/Authentication/Login';
 import Register from './views/Authentication/Register';
 import Forgotpassword from './views/Authentication/Forgotpassword';
+import TrainDetails from './views/Train/TrainDetails'
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/train-explorer" element={<TrainExplorer />} />
+        <Route path="/train-explorer/train-detail/:id" element={<TrainDetails />} />
         <Route path="/pnr-status" element={<PNRStatus />} />
         <Route path="/train-schedules" element={<TrainSchedule />} />
         <Route path="/booking" element={<Booking />} />

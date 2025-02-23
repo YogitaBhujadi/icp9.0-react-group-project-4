@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import toast, { Toaster } from 'react-hot-toast';
-import Background from "../../assets/images/bg7.jpg";
+import Background from "../../assets/images/bg1.jpg";
 
 const Payment = () => {
   const [formData, setFormData] = useState({

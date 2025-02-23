@@ -2,6 +2,10 @@ import React from "react";
 import Button from "./Button";
 import { Link } from "react-router"; 
 
+const handleClick = () => {
+  navigate("/booking"); 
+};
+
 const TrainDetailsCard = ({ train }) => {
   const { id, name, number, type, departure, arrival, duration, price, availability, image } = train;
 
@@ -36,7 +40,7 @@ const TrainDetailsCard = ({ train }) => {
         </p>
 
         <div className="flex justify-center pt-5">
-          <Button text="Book Now" />
+          <Button text="Book Now" onClick={handleClick} />
         </div>
       </div>
     </Link>

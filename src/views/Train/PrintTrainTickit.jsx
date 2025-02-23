@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Background from "../../assets/images/bg7.jpg";
+import Background from "../../assets/images/bg12.webp";
 
 const PrintTrainTicketPage = () => {
   const [ticketDetails, setTicketDetails] = useState({
