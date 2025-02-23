@@ -14,9 +14,12 @@ export default function Booking() {
   const initialPrice = parseFloat(rawPrice.replace(/[^\d.]/g, "")) || 0;
 
   const [formData, setFormData] = useState({
-    train: "",
+    trainName: "",
     passengername: "",
     age: "",
+    gender: "",
+    idProof: "",
+    seatPreference: "",
     from: fromStation,
     to: toStation,
     date: "",
@@ -46,16 +49,16 @@ toast.success("Booking Confirmed.");
       className="min-h-screen flex items-center justify-center bg-cover bg-center"
       style={{ backgroundImage: `url(${Background})` }}
     >
-      <div className="w-120 mx-auto bg-slate-300 p-6 m-10 mt-25 rounded-lg shadow-lg border border-gray-300">
+      <div className="w-120 mx-auto bg-slate-300 p-6 m-10 mt-25 rounded-lg shadow-lg border border-gray-300 ">
         <h2 className="text-3xl font-bold mb-4 text-center text-green-700">
           BOOK TICKET
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4 ">
           <div>
             <label className="block font-medium text-gray-700">Train</label>
             <input
               type="text"
-               name="train"
+               name="trainname"
               value={formData.train}
               onChange={handleChange}
               required
@@ -75,7 +78,11 @@ toast.success("Booking Confirmed.");
           </div>
           <div>
           <label className="block font-medium text-gray-700">Age</label>
-          <input type="number" name="age" value={formData.age} onChange={handleChange} required
+          <input type="number"
+           name="age"
+            value={formData.age}
+             onChange={handleChange}
+              required
             className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700" />
         </div>
         <div>
@@ -89,8 +96,8 @@ toast.success("Booking Confirmed.");
           </select>
         </div>
         <div>
-          <label className="block font-medium text-gray-700">ID Proof</label>
-          <input type="text" name="idProof" value={formData.idProof} onChange={handleChange} required
+          <label className="block font-medium text-gray-700">Aadhar No.</label>
+          <input type="text"  name="idproof" value={formData.idProof} onChange={handleChange} required
             className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700" />
         </div>
         <div>
