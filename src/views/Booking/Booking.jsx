@@ -14,6 +14,7 @@ export default function Booking() {
   const initialPrice = parseFloat(rawPrice.replace(/[^\d.]/g, "")) || 0;
 
   const [formData, setFormData] = useState({
+    train: "",
     passengername: "",
     from: fromStation,
     to: toStation,
@@ -35,11 +36,8 @@ export default function Booking() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-<<<<<<< HEAD
-    toast.success("Booking Confirm..");
-=======
-    toast.success("Booking Confirmed.");
->>>>>>> ef1828429b82daa0fa8617d5b7256aa4658b8bcb
+toast.success("Booking Confirmed.");
+
   };
 
   return (
@@ -56,6 +54,7 @@ export default function Booking() {
             <label className="block font-medium text-gray-700">Train</label>
             <input
               type="text"
+               name="train"
               value={trainName}
               readOnly
               className="w-full p-2 border border-gray-500 outline-none bg-gray-200 rounded-md text-gray-700"
