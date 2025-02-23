@@ -18,7 +18,7 @@ export default function Booking() {
     passengername: "",
     age: "",
     gender: "",
-    idProof: "",
+    aadharno: "",
     seatPreference: "",
     from: fromStation,
     to: toStation,
@@ -49,7 +49,7 @@ toast.success("Booking Confirmed.");
       className="min-h-screen flex items-center justify-center bg-cover bg-center"
       style={{ backgroundImage: `url(${Background})` }}
     >
-      <div className="w-120 mx-auto bg-slate-300 p-6 m-10 mt-25 rounded-lg shadow-lg border border-gray-300 ">
+      <div className="w-120 mx-auto bg-slate-300 p-6 m-10 mt-25 Overflow-y-auto rounded-lg shadow-lg border border-gray-300 ">
         <h2 className="text-3xl font-bold mb-4 text-center text-green-700">
           BOOK TICKET
         </h2>
@@ -97,7 +97,7 @@ toast.success("Booking Confirmed.");
         </div>
         <div>
           <label className="block font-medium text-gray-700">Aadhar No.</label>
-          <input type="text"  name="idproof" value={formData.idProof} onChange={handleChange} required
+          <input type="text"  name="aadharno" value={formData.idProof} onChange={handleChange} required
             className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700" />
         </div>
         <div>
