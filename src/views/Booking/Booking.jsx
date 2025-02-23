@@ -16,6 +16,7 @@ export default function Booking() {
   const [formData, setFormData] = useState({
     train: "",
     passengername: "",
+    age: "",
     from: fromStation,
     to: toStation,
     date: "",
@@ -55,9 +56,10 @@ toast.success("Booking Confirmed.");
             <input
               type="text"
                name="train"
-              value={trainName}
-              readOnly
-              className="w-full p-2 border border-gray-500 outline-none bg-gray-200 rounded-md text-gray-700"
+              value={formData.train}
+              onChange={handleChange}
+              required
+              className="w-full p-2 border border-gray-500 outline-none  focus:border-green-500 rounded-md text-gray-700"
             />
           </div>
           <div>
@@ -68,9 +70,40 @@ toast.success("Booking Confirmed.");
               value={formData.passengername}
               onChange={handleChange}
               required
-              className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700"
+              className="w-full p-2 border border-gray-500 outline-none  focus:border-green-500  rounded-md text-gray-700"
             />
           </div>
+          <div>
+          <label className="block font-medium text-gray-700">Age</label>
+          <input type="number" name="age" value={formData.age} onChange={handleChange} required
+            className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700" />
+        </div>
+        <div>
+          <label className="block font-medium text-gray-700">Gender</label>
+          <select name="gender" value={formData.gender} onChange={handleChange} required
+            className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700">
+            <option value="">Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div>
+          <label className="block font-medium text-gray-700">ID Proof</label>
+          <input type="text" name="idProof" value={formData.idProof} onChange={handleChange} required
+            className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700" />
+        </div>
+        <div>
+          <label className="block font-medium text-gray-700">Seat Preference</label>
+          <select name="seatPreference" value={formData.seatPreference} onChange={handleChange} required
+            className="w-full p-2 border rounded-md text-gray-700">
+            <option value="">Select</option>
+            <option value="Window">Window</option>
+            <option value="Aisle">Aisle</option>
+            <option value="No Preference">No Preference</option>
+          </select>
+        </div>
+
           <div>
             <label className="block font-medium text-gray-700">From</label>
             <input
