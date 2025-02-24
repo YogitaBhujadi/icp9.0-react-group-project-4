@@ -124,25 +124,10 @@ toast.success("Booking Confirmed.");
       style={{ backgroundImage: `url(${Background})` }}
     >
 
-      <div className="w-120 mx-auto bg-slate-300 p-6 m-10 mt-25 Overflow-y-auto rounded-lg shadow-lg border border-gray-300 ">
-        <h2 className="text-3xl font-bold mb-4 text-center text-green-700">
-          BOOK TICKET
-        </h2>
-        <form onSubmit={handleSubmit} className="space-y-4 ">
-          <div>
-            <label className="block font-medium text-gray-700">Train</label>
-            <input
-              type="text"
-               name="trainname"
-              value={formData.train}
-              onChange={handleChange}
-              required
-              className="w-full p-2 border border-gray-500 outline-none  focus:border-green-500 rounded-md text-gray-700"
-            />
-            </div>
+      
       <div className="md:w-120 lg:w-120 w-80 mx-auto bg-slate-300 p-6 md:m-10 md:mt-25 md:mb-10 mt-20 mb-10 rounded-lg shadow-lg border border-gray-300 overflow-y-auto max-h-150 faqs-container">
         <h2 className="md:text-3xl text-2xl font-bold mb-4 text-center text-green-700">
-          BOOK TICKET
+          BOOK TICKET *
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
         <h3 className="text-xl text-green-800 font-semibold">Personal Details:</h3>
@@ -253,6 +238,7 @@ toast.success("Booking Confirmed.");
 
           <div>
             <label className="block font-medium text-gray-700">From</label>
+            <select>
             <input
               type="text"
               name="from"
@@ -260,17 +246,13 @@ toast.success("Booking Confirmed.");
               readOnly
               className="w-full p-2 border border-gray-500 outline-none bg-gray-200 rounded-md text-gray-700"
             />
-=======
-              className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700"
-              disabled={!selectedTrain}
-            >
               <option value="">Select Station</option>
               {availableStations.map((station) => (
                 <option key={station} value={station}>
                   {station}
                 </option>
               ))}
-            </select>
+               </select>
 
           </div>
 
@@ -332,7 +314,8 @@ toast.success("Booking Confirmed.");
             Book Now
           </button>
           <Toaster />
-        </form>
+          </form>
+        
       </div>
     </div>
   );

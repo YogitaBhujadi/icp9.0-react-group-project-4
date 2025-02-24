@@ -7,10 +7,7 @@ import PNRStatus from './views/Pnrstatus/pnr';
 import TrainExplorer from "./views/Train/TrainExplorer";
 import TrainSchedule from "./views/Train/TrainSchedule";
 import Booking from "./views/Booking/Booking";
-<<<<<<< HEAD
 import PassengerDetails from "./views/Booking/Booking";
-=======
->>>>>>> e8d01e51d6d2e168b6b12d56278ee1485859384c
 import Payment from "./views/Booking/Payment";
 import About from './views/About/About';
 import PrintTrainTicketPage from './views/Train/PrintTrainTickit';
