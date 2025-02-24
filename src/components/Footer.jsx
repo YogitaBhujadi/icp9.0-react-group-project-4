@@ -14,7 +14,7 @@ const Footer = () => {
                 <TramFront size={30}/>
                 <p className="italic text-xl">TrackGo</p>
             </div>
-            <p className="text-green-600 font-semibold max-w-md">
+            <p className="text-green-600 font-semibold max-w-md md:text-start text-center mt-3 md:text-[16px] text-sm">
                 TrackGo is official partner of IRCTC to book IRCTC train tickets and Railway train enquiry
             </p>
         </div>
@@ -41,9 +41,9 @@ const Footer = () => {
         <div className="flex flex-col mt-4 space-y-2.5">
             <p className="font-bold">Follow Us</p>
             <div className="flex flex-row space-x-3">
-                <Link to="#"> <img src={instagram} alt="" className="w-8"/></Link>
-                <Link to="#"> <img src={facebook} alt="" className="w-8"/></Link>
-                <Link to="#"> <img src={twitter} alt="" className="w-8"/></Link>
+                <Link to="#"> <img src={instagram} alt="" className="md:w-8 w-6"/></Link>
+                <Link to="#"> <img src={facebook} alt="" className="md:w-8 w-6"/></Link>
+                <Link to="#"> <img src={twitter} alt="" className="md:w-8 w-6"/></Link>
             </div>
         </div>
 

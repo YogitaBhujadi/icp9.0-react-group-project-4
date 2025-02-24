@@ -7,12 +7,14 @@ import PNRStatus from './views/Pnrstatus/pnr';
 import TrainExplorer from "./views/Train/TrainExplorer";
 import TrainSchedule from "./views/Train/TrainSchedule";
 import Booking from "./views/Booking/Booking";
+<<<<<<< HEAD
 import PassengerDetails from "./views/Booking/Booking";
+=======
+>>>>>>> e8d01e51d6d2e168b6b12d56278ee1485859384c
 import Payment from "./views/Booking/Payment";
 import About from './views/About/About';
 import PrintTrainTicketPage from './views/Train/PrintTrainTickit';
 import CancelTrainTicketPage from './views/Train/CancelTrainTicket';
-import TrainRunningStatusPage from './views/Train/TrainRunningStatus';
 import Support from './views/Support/SupportView';
 import ContactPage from './views/Contact/Contact';
 import Login from './views/Authentication/Login';
@@ -31,12 +33,10 @@ const App = () => {
         <Route path="/pnr-status" element={<PNRStatus />} />
         <Route path="/train-schedules" element={<TrainSchedule />} />
         <Route path="/booking" element={<Booking />} />
-        <Route path="/passenger-details" element={<PassengerDetails />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/about" element={<About />} />
         <Route path="/print-train-ticket" element={<PrintTrainTicketPage />} />
         <Route path="/cancel-train-ticket" element={<CancelTrainTicketPage />} />
-        <Route path="/train-running-status" element={<TrainRunningStatusPage />} />
         <Route path="/support" element={<Support />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<Login />} />

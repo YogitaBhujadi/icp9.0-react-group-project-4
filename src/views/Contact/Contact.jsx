@@ -28,9 +28,9 @@ const ContactPage = () => {
       className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-cover bg-center"
       style={{ backgroundImage: `url(${Background})` }}
     >
-      <div className="w-[80%] mx-auto flex mt-20">
-          <div className=" md:w-1/2 bg-slate-300 shadow-lg rounded-lg p-6 m-4 opacity-95 flex-grow">
-            <h2 className="text-3xl font-bold mb-4 text-green-800 text-center pb-3 ">
+      <div className="md:w-[80%] lg:w-[80%] w-[90%] mx-auto flex md:flex-row lg-flex-row flex-col mt-20">
+          <div className=" md:w-1/2 lg-w-1/2 w-full bg-slate-300 shadow-lg rounded-lg p-6 md:m-4 lg:m-4 m-0 md:mt-0 mt-5 opacity-95 flex-grow">
+            <h2 className="md:text-3xl lg:text-3xl text-2xl font-bold mb-4 text-green-800 text-center pb-3 ">
               Contact Information
             </h2>
             <p className="text-lg text-gray-600 pb-1 font-bold">✉️ Email:</p>
@@ -58,13 +58,13 @@ const ContactPage = () => {
             </p>
           </div>
 
-          <div className="w-full md:w-1/2 bg-slate-300 shadow-lg rounded-lg p-6 m-4 opacity-95">
-            <h2 className="text-3xl font-bold mb-4 text-green-800 text-center pb-3">
+          <div className="w-full md:w-1/2 bg-slate-300 shadow-lg rounded-lg p-6 md:m-4 m-0 md:my-0 my-5 opacity-95">
+            <h2 className="md:text-3xl text-2xl font-bold mb-4 text-green-800 text-center pb-3">
               Feedback Form
             </h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
-                <label className="block text-lg font-semibold mb-1 text-gray-600">
+                <label className="block md:text-lg text-sm font-semibold mb-1 text-gray-600">
                   Name
                 </label>
                 <input
@@ -77,7 +77,7 @@ const ContactPage = () => {
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-lg font-semibold mb-1 text-gray-600">
+                <label className="block md:text-lg text-sm font-semibold mb-1 text-gray-600">
                   Email
                 </label>
                 <input
@@ -90,7 +90,7 @@ const ContactPage = () => {
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-lg font-semibold mb-1 text-gray-600">
+                <label className="block md:text-lg text-sm font-semibold mb-1 text-gray-600">
                   Message
                 </label>
                 <textarea
@@ -104,7 +104,7 @@ const ContactPage = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-green-600 text-white p-2 rounded-lg text-xl font-bold hover:bg-green-700 transition"
+                className="w-full bg-green-600 text-white p-2 rounded-lg md:text-xl text-lg font-bold hover:bg-green-700 transition"
               >
                 Submit Feedback
               </button>

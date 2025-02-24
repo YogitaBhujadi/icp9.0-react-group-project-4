@@ -2,252 +2,115 @@ import React, { useState } from 'react';
 import Background from "../../assets/images/bg12.webp";
 
 const trainSchedule = [
-    {
-        name: "Rajdhani Express",
-        number: "R1234",
-        station: "New Delhi",
-        Destination_Station: "Mumbai",
-        route: "Delhi to Mumbai",
-        time: "5:00 PM",
-        Station_Code: "NDLS",
-        Station_Name: "New Delhi",
-        Route_Number: "12345",
-        Arrival_Time: "08:00 AM",
-        Departure_Time: "08:30 AM",
-        Distance: "200 km",
-        Day: "Saturday"
-    },
-    {
-        name: "Shatabdi Express",
-        number: "S5678",
-        station: "Chennai",
-        Destination_Station: "Bangalore",
-        route: "Chennai to Bangalore",
-        time: "6:00 AM",
-        Station_Code: "SBC",
-        Station_Name: "Bangalore",
-        Route_Number: "12346",
-        Arrival_Time: "08:30 AM",
-        Departure_Time: "09:00 AM",
-        Distance: "350 km",
-        Day: "Saturday"
-    },
-    {
-        name: "Duronto Express",
-        number: "D9101",
-        station: "Kolkata",
-        Destination_Station: "Delhi",
-        route: "Kolkata to Delhi",
-        time: "8:00 PM",
-        Station_Code: "HWH",
-        Station_Name: "Howrah",
-        Route_Number: "12347",
-        Arrival_Time: "05:00 AM",
-        Departure_Time: "05:30 AM",
-        Distance: "1500 km",
-        Day: "Saturday"
-    },
-    {
-        name: "Jan Shatabdi",
-        number: "J2345",
-        station: "Pune",
-        Destination_Station: "Aurangabad",
-        route: "Pune to Aurangabad",
-        time: "7:30 AM",
-        Station_Code: "PUNE",
-        Station_Name: "Pune",
-        Route_Number: "12348",
-        Arrival_Time: "09:00 AM",
-        Departure_Time: "09:30 AM",
-        Distance: "250 km",
-        Day: "Saturday"
-    },
-    {
-        name: "Maharashtra Express",
-        number: "M6789",
-        station: "Nagpur",
-        Destination_Station: "Mumbai",
-        route: "Nagpur to Mumbai",
-        time: "9:00 PM",
-        Station_Code: "NGP",
-        Station_Name: "Nagpur",
-        Route_Number: "12349",
-        Arrival_Time: "11:30 PM",
-        Departure_Time: "12:00 AM",
-        Distance: "800 km",
-        Day: "Saturday"
-    },
-    {
-        name: "Konkan Kanya Express",
-        number: "K1234",
-        station: "Ratnagiri",
-        Destination_Station: "Mumbai",
-        route: "Ratnagiri to Mumbai",
-        time: "4:00 PM",
-        Station_Code: "RAT",
-        Station_Name: "Ratnagiri",
-        Route_Number: "12350",
-        Arrival_Time: "06:30 PM",
-        Departure_Time: "07:00 PM",
-        Distance: "300 km",
-        Day: "Saturday"
-    },
-    {
-        name: "Nizamuddin Express",
-        number: "N5678",
-        station: "Hyderabad",
-        Destination_Station: "Delhi",
-        route: "Hyderabad to Delhi",
-        time: "10:30 PM",
-        Station_Code: "HYD",
-        Station_Name: "Hyderabad",
-        Route_Number: "12351",
-        Arrival_Time: "08:00 AM",
-        Departure_Time: "08:30 AM",
-        Distance: "1700 km",
-        Day: "Saturday"
-    },
-    {
-        name: "Gujarat Mail",
-        number: "G9101",
-        station: "Ahmedabad",
-        Destination_Station: "Mumbai",
-        route: "Ahmedabad to Mumbai",
-        time: "11:15 PM",
-        Station_Code: "ADI",
-        Station_Name: "Ahmedabad",
-        Route_Number: "12352",
-        Arrival_Time: "03:00 AM",
-        Departure_Time: "03:30 AM",
-        Distance: "500 km",
-        Day: "Saturday"
-    },
-    {
-        name: "Goa Express",
-        number: "GE1234",
-        station: "Madgaon",
-        Destination_Station: "Mumbai",
-        route: "Madgaon to Mumbai",
-        time: "6:45 AM",
-        Station_Code: "MDGN",
-        Station_Name: "Madgaon",
-        Route_Number: "12353",
-        Arrival_Time: "09:00 AM",
-        Departure_Time: "09:30 AM",
-        Distance: "450 km",
-        Day: "Saturday"
-    }
-    
+    { name: "Rajdhani Express", number: "12951", station: "Mumbai Central", Destination_Station: "New Delhi", route: "Mumbai -> New Delhi", time: "16:40" },
+    { name: "Shatabdi Express", number: "12002", station: "New Delhi", Destination_Station: "Bhopal", route: "New Delhi -> Bhopal", time: "06:00" },
+    { name: "Duronto Express", number: "12290", station: "Nagpur", Destination_Station: "Mumbai CST", route: "Nagpur -> Mumbai CST", time: "20:40" },
+    { name: "Garib Rath Express", number: "12203", station: "Saharsa", Destination_Station: "Amritsar", route: "Saharsa -> Amritsar", time: "14:00" },
+    { name: "Kolkata Mail", number: "12321", station: "Mumbai CST", Destination_Station: "Howrah", route: "Mumbai CST -> Howrah", time: "21:30" }
 ];
 
-
-function Application() {
-    const [inputValue, setInputValue] = useState('');
+export default function TrainSchedule() {
+    const [inputValue, setInputValue] = useState("");
+    const [searchedValue, setSearchedValue] = useState("");
     const [trainInfo, setTrainInfo] = useState(null);
-
-    const SearchTrain = () => {
-        const train = findTrain(inputValue);
-        setTrainInfo(train ? train : null);
-        setInputValue(""); 
-    };
+    const [suggestions, setSuggestions] = useState([]);
 
     const findTrain = (input) => {
-       
-        const filteredTrains = trainSchedule.filter(train => {
-            if (train.number === input) {
-                return true; 
-            } else {
-                return false; 
-            }
-        });
-        
-        return filteredTrains.length > 0 ? filteredTrains[0] : null;
+        const filteredTrains = trainSchedule.filter(train => 
+            train.Destination_Station.toLowerCase() === input.toLowerCase()
+        );
+        return filteredTrains.length > 0 ? filteredTrains : null;
+    };
+
+    const handleInputChange = (e) => {
+        const value = e.target.value;
+        setInputValue(value);
+        if (value.length > 0) {
+            const matchedSuggestions = trainSchedule
+                .map(train => train.Destination_Station)
+                .filter(destination => destination.toLowerCase().includes(value.toLowerCase()));
+            setSuggestions([...new Set(matchedSuggestions)]);
+        } else {
+            setSuggestions([]);
+        }
+    };
+
+    const handleSuggestionClick = (suggestion) => {
+        setInputValue(suggestion);
+        setSuggestions([]);
+    };
+
+    const SearchTrain = () => {
+        setSearchedValue(inputValue);
+        const trains = findTrain(inputValue);
+        setTrainInfo(trains);
+        setInputValue("");
+        setSuggestions([]);
     };
 
     function renderTrainInfo() {
-        if (trainInfo !== null) {
-            return (
-                <div className="border border-gray-300 rounded-lg p-4 mt-4">
-                    <div className="bg-green-700 text-white flex flex-col md:flex-row md:justify-between p-2 rounded">
+        if (trainInfo !== null && trainInfo.length > 0) {
+            return trainInfo.map((train, index) => (
+                <div key={index} className="border border-gray-500 rounded-lg p-4 mt-4 w-220 bg-slate-300">
+                    <div className="bg-green-700 space-x-15 text-white flex flex-col md:flex-row md:justify-between p-2 rounded">
                         <b className="m-2">Train Name</b>
-                        <b className="m-2">Train Number</b>
-                        
+                        <b className="m-2 ">Train Number</b>
                         <b className="m-2">From Station</b>
                         <b className="m-2">Destination Station</b>
-                        <b className="m-2">Train Route</b>
                         <b className="m-2">Train Time</b>
                     </div>
-                    
                     <div className='flex flex-col md:flex-row md:justify-between p-2'>
-                        <p className="m-2">{trainInfo.name}</p>
-                        <p className="m-2">{trainInfo.number}</p>
-                        
-                        <p className="m-2">{trainInfo.station}</p>
-                        <p className="m-2">{trainInfo.Destination_Station}</p>
-                        <p className="m-2">{trainInfo.route}</p>
-                        <p className="m-2">{trainInfo.time}</p>
-                    </div>
-                    <hr />
-                    
-                    <div className="bg-green-700 text-white flex flex-col md:flex-row md:justify-between p-2 rounded mt-4">
-                        <b className="m-2">Station Code</b>
-                        <b className="m-2">Station Name</b>
-                        <b className="m-2">Route Number</b>
-                        <b className="m-2">Arrival Time</b>
-                        <b className="m-2">Departure Time</b>
-                        <b className="m-2">Distance</b>
-                        <b className="m-2">Day</b>
-                    </div>
-                    <div className='flex flex-col md:flex-row md:justify-between p-2'>
-                        <p className="m-2">{trainInfo.Station_Code}</p>
-                        <p className="m-2">{trainInfo.Station_Name}</p>
-                        <p className="m-2">{trainInfo.Route_Number}</p>
-                        <p className="m-2">{trainInfo.Arrival_Time}</p>
-                        <p className="m-2">{trainInfo.Departure_Time}</p>
-                        <p className="m-2">{trainInfo.Distance}</p>
-                        <p className="m-2">{trainInfo.Day}</p>
+                        <p className="m-2 text-start">{train.name}</p>
+                        <p className="m-2 text-start">{train.number}</p>
+                        <p className="m-2 text-start">{train.station}</p>
+                        <p className="m-2 text-start">{train.Destination_Station}</p>
+                        <p className="m-2 text-start">{train.time}</p>
                     </div>
                     <hr />
                 </div>
-            );
-        } else if (inputValue) {
+            ));
+        } else if (searchedValue) {
             return (
-                <p className="text-red-500">No train found with number "{inputValue}".</p>
+                <p className="text-red-500 mt-2">No train found for destination "{searchedValue}".</p>
             );
         }
     }
 
     return (
         <div
-            className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
-            style={{
-              backgroundImage: `url(${Background})`,
-            }}
+              className="min-h-screen flex flex-col items-center justify-center bg-cover bg-center"
+              style={{ backgroundImage: `url(${Background})` }}
         >
-        <div className="flex flex-col items-center justify-center w-120 bg-slate-300 p-5">
-            <div className="mb-4 w-full ">
-                <input
-                    type="text"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    placeholder="Enter Train Number"
-                    className="p-2 border border-gray-500 outline-none focus:border-green-500 rounded w-full"
-                    required
-                />
-                <button 
-                    onClick={SearchTrain} 
-                    className="text-xl font-bold p-2 bg-green-600 text-white rounded hover:bg-green-700 w-full md:w-full ml-auto mr-auto mt-5 mb-auto"
-                >
-                    Search Train
-                </button>
-            </div>
-            
-            {renderTrainInfo()}
+        <div className="md:w-120 w-80 mx-auto mt-8 p-6 rounded-lg shadow-lg bg-slate-300 ">
+            <h1 className="md:text-3xl text-2xl text-green-700 font-bold text-center mb-4">Train Schedule</h1>
+            <input 
+                type="text" 
+                value={inputValue} 
+                onChange={handleInputChange} 
+                placeholder="Enter destination station" 
+                className="w-full p-2 border border-gray-500 rounded mb-2 outline-none focus:border-green-500"
+            />
+            {suggestions.length > 0 && (
+                <ul className="border rounded p-2 bg-white shadow-md">
+                    {suggestions.map((suggestion, index) => (
+                        <li 
+                            key={index} 
+                            onClick={() => handleSuggestionClick(suggestion)} 
+                            className="p-1 cursor-pointer hover:bg-gray-200"
+                        >
+                            {suggestion}
+                        </li>
+                    ))}
+                </ul>
+            )}
+            <button 
+                onClick={SearchTrain} 
+                className="w-full text-xl font-bold bg-green-700 text-white p-2 rounded hover:bg-green-800 mt-3"
+            >
+                Search Train
+            </button>
         </div>
+        {renderTrainInfo()}
         </div>
     );
 }
-
-export default Application;
-
- 

@@ -11,7 +11,7 @@ const TrainDetailsCard = ({ train }) => {
 
   return (
     <Link to={`train-detail/${id}`}>
-      <div className="bg-white shadow-md rounded-xl p-4 w-[400px] h-[480px] hover:scale-105 transition-transform border border-gray-300">
+      <div className="bg-white shadow-md rounded-xl p-4 md:w-[400px] md:h-[480px] w-[300px] h-[390px] hover:scale-105 transition-transform border border-gray-300">
         <img 
             src={image} 
             alt={name} 

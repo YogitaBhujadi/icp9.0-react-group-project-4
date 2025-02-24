@@ -27,17 +27,17 @@ const Support = () => {
       style={{ backgroundImage: `url(${Background})` }}
     >
       <div className="bg-slate-300 py-3 px-5 rounded-lg mt-30">
-          <h1 className="text-3xl font-bold text-green-700 mb-2 text-center">Support</h1>
-          <p className="text-lg text-gray-700 text-center max-w-2xl p-4 rounded-lg">
+          <h1 className="md:text-3xl text-2xl font-bold text-green-700 mb-2 text-center">Support</h1>
+          <p className="md:text-lg text-sm text-gray-700 text-center max-w-2xl md:p-4 p-2 rounded-lg">
             If you need any help or have any questions, feel free to reach out to our support team. 
             We are here to assist you with your train booking experience.
           </p>
       </div>
     
       <div className="mt-6 bg-slate-300 bg-opacity-80 p-6 rounded-lg shadow-lg w-full max-w-2xl h-96 overflow-y-auto faqs-container">
-        <h2 className="text-3xl font-semibold text-green-700 text-center">FAQs</h2>
+        <h2 className="md:text-3xl text-2xl font-semibold text-green-700 text-center">FAQs</h2>
 
-        <ul className="mt-2 text-gray-700 text-lg">
+        <ul className="mt-2 text-gray-700 md:text-lg text-sm">
           {faqs.map((faq, index) => (
             <li key={index} className="mt-4">
               <div

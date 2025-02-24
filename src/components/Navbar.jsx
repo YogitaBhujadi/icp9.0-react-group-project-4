@@ -29,7 +29,6 @@ const Navbar = () => {
               <div className="absolute bg-green-200 text-green-700 mt-5 w-50 shadow-lg ">
                 <NavLink to="/train-explorer" className="block px-4 py-2 text-[18px] hover:bg-green-300">Train Explorer</NavLink>
                 <NavLink to="/train-schedules" className="block text-[17px] px-4 py-2 hover:bg-green-300">Train Schedules</NavLink>
-                <NavLink to="/train-running-status" className="block px-4 py-2 text-[17px] hover:bg-green-300">Train Running Status</NavLink>
                 <NavLink to="/print-train-ticket" className="block px-4 py-2 text-[17px] hover:bg-green-300">Print Train Ticket</NavLink>
                 <NavLink to="/cancel-train-ticket" className="block px-4 py-2 text-[17px] hover:bg-green-300">Cancel Train Ticket</NavLink>
               </div>
@@ -43,7 +42,6 @@ const Navbar = () => {
             {dropdown === "booking" && (
               <div className="absolute bg-green-200 text-green-700 mt-5 w-50 shadow-lg ">
                 <NavLink to="/booking" className="block px-4 py-2 text-lg hover:bg-green-300">Book Ticket</NavLink>
-                <NavLink to="/passenger-details" className="block text-lg px-4 py-2 hover:bg-green-300">Passenger Details</NavLink>
                 <NavLink to="/payment" className="block px-4 py-2 text-lg hover:bg-green-300">Payment</NavLink>
               </div>
             )}
@@ -77,25 +75,36 @@ const Navbar = () => {
         </div>
 
         <div className="md:hidden">
-          <button onClick={() => setMobileMenu(!mobileMenu)} className="text-white text-xl">
+          <button onClick={() => setMobileMenu(!mobileMenu)} className="text-green-700 text-xl">
             {mobileMenu ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
 
       {mobileMenu && (
-        <div className="md:hidden bg-[#73db73] text-green-800 flex flex-col space-y-3 p-4">
-          <NavLink to="/train-explorer" className="hover:text-white" onClick={() => setMobileMenu(false)}>Train Explorer</NavLink>
+        <div className="md:hidden bg-green-200 text-green-700 flex flex-col space-y-12 p-4">
+          <div className="relative">
+            <button onClick={() => toggleDropdown("trainMobile")} className="hover:text-white flex items-center">
+              Train <ChevronDown className="ml-1" />
+            </button>
+            {dropdown === "trainMobile" && (
+              <div className="absolute bg-green-200 text-green-800 mt-2 ml-25 w-48 shadow-lg rounded-lg">
+                <NavLink to="/train-explorer" className="block px-4 py-2 text-[18px] hover:bg-green-300">Train Explorer</NavLink>
+                <NavLink to="/train-schedules" className="block text-[17px] px-4 py-2 hover:bg-green-300">Train Schedules</NavLink>
+                <NavLink to="/print-train-ticket" className="block px-4 py-2 text-[17px] hover:bg-green-300">Print Train Ticket</NavLink>
+                <NavLink to="/cancel-train-ticket" className="block px-4 py-2 text-[17px] hover:bg-green-300">Cancel Train Ticket</NavLink>
+              </div>
+            )}
+          </div>
 
           <div className="relative">
             <button onClick={() => toggleDropdown("bookingMobile")} className="hover:text-white flex items-center">
               Booking <ChevronDown className="ml-1" />
             </button>
             {dropdown === "bookingMobile" && (
-              <div className="absolute bg-white text-green-800 mt-2 w-48 shadow-lg rounded-lg">
-                <NavLink to="/booking" className="block px-4 py-2 text-lg hover:bg-gray-200">Book Ticket</NavLink>
-                <NavLink to="/passenger-details" className="block text-lg px-4 py-2 hover:bg-gray-200">Passenger Details</NavLink>
-                <NavLink to="/payment" className="block px-4 py-2 text-lg hover:bg-gray-200">Payment</NavLink>
+              <div className="absolute bg-green-200 text-green-800 mt-2 w-48 shadow-lg rounded-lg">
+                <NavLink to="/booking" className="block px-4 py-1 text-lg hover:bg-gray-200">Book Ticket</NavLink>
+                <NavLink to="/payment" className="block px-4 py-1 text-lg hover:bg-gray-200">Payment</NavLink>
               </div>
             )}
           </div>
@@ -103,11 +112,23 @@ const Navbar = () => {
           <NavLink to="/pnr-status" className="hover:text-white" onClick={() => setMobileMenu(false)}>PNR Status</NavLink>
 
           <div className="relative">
+            <button onClick={() => toggleDropdown("supportMobile")} className="hover:text-white flex items-center">
+              Support <ChevronDown className="ml-1" />
+            </button>
+            {dropdown === "supportMobile" && (
+              <div className="absolute bg-green-200 text-green-800 mt-2 ml-20 w-48 shadow-lg rounded-lg">
+                <NavLink to="/contact" className="block px-4 py-1 text-lg hover:bg-gray-200">Contact Us</NavLink>
+                <NavLink to="/support" className="block px-4 py-1 text-lg hover:bg-gray-200">Support</NavLink>
+              </div>
+            )}
+          </div>
+
+          <div className="relative">
             <button onClick={() => toggleDropdown("loginMobile")} className="hover:text-white flex items-center">
               Login <ChevronDown className="ml-1" />
             </button>
             {dropdown === "loginMobile" && (
-              <div className="absolute bg-white text-green-800 mt-2 w-48 shadow-lg rounded-lg">
+              <div className="absolute bg-green-200 text-green-800 mt-2 w-48 shadow-lg rounded-lg">
                 <NavLink to="/login" className="block px-4 py-2 text-lg hover:bg-gray-200" onClick={() => setMobileMenu(false)}>Login</NavLink>
                 <NavLink to="/forgot-password" className="block text-lg px-4 py-2 hover:bg-gray-200" onClick={() => setMobileMenu(false)}>Forgot Password</NavLink>
                 <NavLink to="/register" className="block px-4 py-2 text-lg hover:bg-gray-200" onClick={() => setMobileMenu(false)}>Register</NavLink>
